@@ -1,0 +1,10 @@
+username,password,expected_status,description
+admin,password123,200,Success
+,password123,401,empty username
+admin,,401,empty password
+,,401,empty credentials
+admin ,password123,401,username with space
+ ,password123,401,username with space only
+admin, ,401,password with space only
+admin,password123 ,401,password with space
+wrong,wrong,401,invalid credentials

@@ -1,0 +1,138 @@
+{
+  "info": {
+    "_postman_id": "cf4ca10c-02a2-4bf8-9694-dab0f787a329",
+    "name": "Parametrized_Auth",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2102841"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "auth_create_token_variations",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const username = pm.iterationData.get(\"username\");",
+                  "const password = pm.iterationData.get(\"password\");",
+                  "const expected_status = pm.iterationData.get(\"expected_status\");",
+                  "const description = pm.iterationData.get(\"description\");",
+                  "",
+                  "console.log(\"read username is:\", username);",
+                  "console.log(\"read password is:\", password);",
+                  "console.log(\"expected status code is:\", expected_status);",
+                  "console.log(\"description of itteration is:\", description);",
+                  "",
+                  "pm.test('Check response status code', function () {",
+                  "    pm.response.to.have.status(expected_status);",
+                  "});",
+                  "",
+                  "pm.test('Response time is less than 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('Response contains a token in a json', function () {",
+                  "    pm.response.to.have.header(\"Content-Type\");",
+                  "    pm.response.to.be.json;",
+                  "",
+                  "    var response = pm.response.json();",
+                  "    pm.expect(response).to.have.all.keys(\"token\");",
+                  "    pm.expect(response.token).to.be.a(\"string\");",
+                  "    console.log(\"Received token is: \", response.token);",
+                  "",
+                  "    pm.environment.set(\"auth_token\", response.token);",
+                  "});",
+                  "",
+                  "pm.test(`Expected status ${expected_status}`, () => {",
+                  "    pm.expect(expected_status).to.not.be.undefined;",
+                  "    pm.response.to.have.status(parseInt(expected_status, 10));",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"{{username}}\",\r\n    \"password\" : \"{{password}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "Generated from cURL: curl -X POST \\\r\n  https://restful-booker.herokuapp.com/auth \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}'"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://restful-booker.herokuapp.com"
+    },
+    {
+      "key": "default_timeout",
+      "value": "2000"
+    }
+  ]
+}

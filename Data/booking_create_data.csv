@@ -1,0 +1,36 @@
+td_fname,td_lname,td_totalprice,td_depositpaid,td_checkin,td_checkout,td_needs,expected_status,description
+Jim,Brown,111,true,2026-10-05,2026-10-12,Breakfast,200,correct_booking
+Lesley Ann,Sallivan,111,true,2026-10-05,2026-10-12,Breakfast,200,correct_booking
+ Lesley Ann , Sallivan Del Pino ,111,true,2026-10-05,2026-10-12,Breakfast,200,correct_booking
+Jim,Brown,111.57,true,2026-10-05,2026-10-12,Breakfast,200,correct_booking
+Jim,Brown,112,true,2026-10-06,2026-10-13,,200,correct booking with empty additionalneeds
+,Brown,113,true,2026-10-05,2026-10-12,Breakfast,400,empty fname
+ ,Brown,114,true,2026-10-05,2026-10-12,Breakfast,400,spaced fname
+null,Brown,113,true,2026-10-05,2026-10-12,Breakfast,400,empty fname
+Jim,,115,true,2026-10-05,2026-10-12,Breakfast,400,empty lname
+Jim, ,116,true,2026-10-05,2026-10-12,Breakfast,400,spaced lname
+Jim,null,115,true,2026-10-05,2026-10-12,Breakfast,400,empty lname
+Jim,Brown,,true,2026-10-05,2026-10-12,Breakfast,400,empty price
+Jim,Brown, ,true,2026-10-05,2026-10-12,Breakfast,400,spaced price
+Jim,Brown,null,true,2026-10-05,2026-10-12,Breakfast,400,null price | deposit true
+Jim,Brown,null,false,2026-10-05,2026-10-12,Breakfast,400,null price | deposit false
+Jim,Brown,0,true,2026-10-05,2026-10-12,Breakfast,200,0 price | deposit true
+Jim,Brown,0.01,true,2026-10-05,2026-10-12,Breakfast,200,0.01 price | deposit true
+Jim,Brown,0,false,2026-10-05,2026-10-12,Breakfast,200,0 price | deposit false
+Jim,Brown,price,true,2026-10-05,2026-10-12,Breakfast,400,string price
+Jim,Brown,120,,2026-10-05,2026-10-12,Breakfast,400,empty deposit
+Jim,Brown,121, ,2026-10-05,2026-10-12,Breakfast,400,spaced deposit
+Jim,Brown,120,0,2026-10-05,2026-10-12,Breakfast,200,0 deposit
+Jim,Brown,120,1,2026-10-05,2026-10-12,Breakfast,200,1 deposit
+Jim,Brown,120,999,2026-10-05,2026-10-12,Breakfast,400,999 deposit
+Jim,Brown,120,deposit,2026-10-05,2026-10-12,Breakfast,400,string deposit
+Jim,Brown,120,null,2026-10-05,2026-10-12,Breakfast,400,null deposit
+Jim,Brown,122,true,,2026-10-12,Breakfast,400,empty checkin
+Jim,Brown,123,true, ,2026-10-12,Breakfast,400,spaced checkin
+Jim,Brown,122,true,null,2026-10-12,Breakfast,400,null checkin
+Jim,Brown,124,true,2026-10-05,,Breakfast,400,empty checkout
+Jim,Brown,125,true,2026-10-05, ,Breakfast,400,spaced checkout
+Jim,Brown,124,true,2026-10-05,null,Breakfast,400,null checkout
+Jim,Brown,126,true,2025-10-05,2026-10-12,Breakfast,400,checkin in the past
+Jim,Brown,127,true,2026-10-05,2025-10-12,Breakfast,400,checkout in the past
+Jim,Brown,128,true,2026-11-12,2026-11-05,Breakfast,400,checkin later then checkout

@@ -1,0 +1,19 @@
+td_fname,td_lname,td_totalprice,td_depositpaid,td_checkin,td_checkout,td_needs,expected_status,description
+John,Smith,123,false,2026-10-07,2026-10-15,Cleaning,200,correct_booking
+John,Smith,123,false,2026-10-07,2026-10-15,,200,correct booking with empty additionalneeds
+,Smith,123,false,2026-10-07,2026-10-15,Cleaning,400,empty fname
+ ,Smith,123,false,2026-10-07,2026-10-15,Cleaning,400,spaced fname
+John,,123,false,2026-10-07,2026-10-15,Cleaning,400,empty lname
+John, ,123,false,2026-10-07,2026-10-15,Cleaning,400,spaced lname
+John,Smith,,false,2026-10-07,2026-10-15,Cleaning,400,empty price
+John,Smith, ,false,2026-10-07,2026-10-15,Cleaning,400,spaced price
+John,Smith,price,false,2026-10-07,2026-10-15,Cleaning,400,string price
+John,Smith,123,,2026-10-07,2026-10-15,Cleaning,400,empty deposit
+John,Smith,123, ,2026-10-07,2026-10-15,Cleaning,400,spaced deposit
+John,Smith,123,false,,2026-10-12,Cleaning,400,empty checkin
+John,Smith,123,false, ,2026-10-15,Cleaning,400,spaced checkin
+John,Smith,123,false,2026-10-07,,Cleaning,400,empty checkout
+John,Smith,123,false,2026-10-07, ,Cleaning,400,spaced checkout
+John,Smith,123,false,2025-10-07,2026-10-15,Cleaning,400,checkin in the past
+John,Smith,123,false,2026-10-07,2025-10-15,Cleaning,400,checkout in the past
+John,Smith,123,false,2026-10-17,2026-10-05,Cleaning,400,checkin later then checkout

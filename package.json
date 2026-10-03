@@ -1,0 +1,13 @@
+{
+  "name": "yasp-postman-newman",
+  "version": "1.0.0",
+  "description": "QA_Dev",
+  "main": "index.js",
+  "scripts": {
+	"test": "newman run Testcase/Main.postman_collection.json -e Env/QA_Dev.postman_environment.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
